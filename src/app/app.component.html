@@ -1,0 +1,32 @@
+<ng2-slim-loading-bar [color]="'black'" [height]="'10px'"></ng2-slim-loading-bar>
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="funcionario/create" class="nav-link" routerLinkActive="active">
+          Criar Funcionario
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="funcionario/lista" class="nav-link" routerLinkActive="active">
+          Funcionarios
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="setor/create" class="nav-link" routerLinkActive="active">
+          Criar Setor
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="setor/lista" class="nav-link" routerLinkActive="active">
+          Setores
+        </a>
+      </li>
+    </ul>    
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

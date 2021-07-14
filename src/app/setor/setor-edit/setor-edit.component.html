@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup] = "setorForm" novalidate>
+            
+            <!-- BLOCO NOME DO SETOR-->
+            <div class="form-group col-md-8">
+                <label for="nome" class="col-md-8">Nome:</label>
+                <input type="text" class="form-control" placeholder="Digite o nome do setor" formControlName="nome" #nome/>
+            </div>
+            <div *ngIf = "setorForm.controls['nome'].invalid
+                    && (setorForm.controls['nome'].dirty 
+                    || setorForm.controls['nome'].touched)" 
+                    class="alert alert-danger">
+                    <div *ngIf = "setorForm.controls['nome'].errors">
+                        O campo 'Nome' é obrigatório!
+                    </div>
+            </div>
+            <!-- BLOCO NOME DO SETOR-->
+
+            <!-- BLOCO LOCAL DO SETOR-->
+            <div class="form-group col-md-8">
+                <label for="local" class="col-md-8">Local:</label>
+                <input type="text" class="form-control" placeholder="Digite o local do setor" formControlName="local" #local />
+            </div>
+            <div *ngIf = "setorForm.controls['local'].invalid
+                    && (setorForm.controls['local'].dirty 
+                    || setorForm.controls['local'].touched)" 
+                    class="alert alert-danger">
+                    <div *ngIf = "setorForm.controls['local'].errors">
+                        O campo 'Local' é obrigatório!
+                    </div>
+            </div>
+            <!-- BLOCO LOCAL DO SETOR-->
+
+            <div class="form-group col-md-8">	
+                <button class="btn btn-primary" (click)="updateSetor(nome.value ,local.value)" 
+                [disabled] = "setorForm.invalid">Atualizar Setor 
+                </button>   
+            </div>
+        </form>
+    </div>
+</div>

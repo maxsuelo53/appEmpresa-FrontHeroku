@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+        <tr>
+            <td class="text-center">Nome</td>
+            <td class="text-center">Local</td>
+            <td class="text-center" colspan="2"> Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let setor of setores">
+            <td class="text-center"> {{ setor.nome }}</td>
+            <td class="text-center"> {{ setor.local }}</td>
+            <td>
+                <a [routerLink]="['/setor', setor.id_setor]" routerLinkActive="router-link-active" class="btn btn-success">Editar</a>
+            </td>
+            <td>                
+                <button (click)="deleteSetor(setor.id_setor)" class="btn btn-danger">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

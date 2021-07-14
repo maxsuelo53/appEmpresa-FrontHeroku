@@ -1,0 +1,87 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup] = "funcionarioForm" novalidate>
+            
+            <!-- BLOCO NOME DO FUNCIONARIO-->
+            <div class="form-group col-md-8">
+                <label for="nome" class="col-md-8">Nome:</label>
+                <input type="text" class="form-control" placeholder="Digite o nome do funcionario" formControlName="nome" #nome/>
+            </div>
+            <div *ngIf = "funcionarioForm.controls['nome'].invalid
+                    && (funcionarioForm.controls['nome'].dirty 
+                    || funcionarioForm.controls['nome'].touched)" 
+                    class="alert alert-danger">
+                    <div *ngIf = "funcionarioForm.controls['nome'].errors">
+                        O campo 'Nome' é obrigatório!
+                    </div>
+            </div>
+            <!-- BLOCO NOME DO FUNCIONARIO-->
+
+            <!-- BLOCO CARGO DO FUNCIONARIO-->
+            <div class="form-group col-md-8">
+                <label for="cargo" class="col-md-8">Cargo:</label>
+                <input type="text" class="form-control" placeholder="Digite o cargo do funcionario" formControlName="cargo" #cargo />
+            </div>
+            <div *ngIf = "funcionarioForm.controls['cargo'].invalid
+                    && (funcionarioForm.controls['cargo'].dirty 
+                    || funcionarioForm.controls['cargo'].touched)" 
+                    class="alert alert-danger">
+                    <div *ngIf = "funcionarioForm.controls['cargo'].errors">
+                        O campo 'Cargo' é obrigatório!
+                    </div>
+            </div>
+            <!-- BLOCO CARGO DO FUNCIONARIO-->
+
+            <!-- BLOCO SALARIO DO FUNCIONARIO-->
+            <div class="form-group col-md-8">
+                <label for="salario" class="col-md-8">Salario:</label>
+                <input type="number" class="form-control" placeholder="Digite o salário do funcionario" formControlName="salario" #salario />
+            </div>
+            <div *ngIf = "funcionarioForm.controls['salario'].invalid
+                    && (funcionarioForm.controls['salario'].dirty 
+                    || funcionarioForm.controls['salario'].touched)" 
+                    class="alert alert-danger">
+                    <div *ngIf = "funcionarioForm.controls['salario'].errors">
+                        O campo 'Salario' é obrigatório!
+                    </div>
+            </div>
+            <!-- BLOCO SALARIO DO FUNCIONARIO-->
+
+            <!-- BLOCO DATA DE NASCIMENTO DO FUNCIONARIO-->
+            <div class="form-group col-md-8">
+                <label for="data_nascimento" class="col-md-8">Data de Nascimento:</label>
+                <input type="date" class="form-control" placeholder="YYYY/MM/DD" formControlName="data_nascimento" #data_nascimento />
+            </div>
+            <div *ngIf = "funcionarioForm.controls['data_nascimento'].invalid
+                    && (funcionarioForm.controls['data_nascimento'].dirty 
+                    || funcionarioForm.controls['data_nascimento'].touched)" 
+                    class="alert alert-danger">
+                    <div *ngIf = "funcionarioForm.controls['data_nascimento'].errors">
+                        O campo 'Data de Nascimento' é obrigatório!
+                    </div>
+            </div>
+            <!-- BLOCO DATA DE NASCIMENTO DO FUNCIONARIO-->
+
+            <!-- BLOCO REGISTRO DO FUNCIONARIO-->
+            <div class="form-group col-md-8">
+                <label for="funcionario-registro" class="col-md-8">Registro do Funcionario:</label>
+                <input type="text" class="form-control" placeholder="Digite o registro do funcionario" formControlName="registro_funcionario" #registro_funcionario />
+            </div>
+            <div *ngIf = "funcionarioForm.controls['registro_funcionario'].invalid
+                    && (funcionarioForm.controls['registro_funcionario'].dirty 
+                    || funcionarioForm.controls['registro_funcionario'].touched)" 
+                    class="alert alert-danger">
+                    <div *ngIf = "funcionarioForm.controls['registro_funcionario'].errors">
+                        O campo 'Registro do Funcionario' é obrigatório!
+                    </div>
+            </div>
+            <!-- BLOCO REGISTRO DO FUNCIONARIO-->
+
+            <div class="form-group col-md-8">	
+                <button class="btn btn-primary" (click)="updateFuncionario(nome.value ,cargo.value , salario.value, data_nascimento.value, registro_funcionario.value)" 
+                [disabled] = "funcionarioForm.invalid">Funcionario 
+                </button>   
+            </div>
+        </form>
+    </div>
+</div>

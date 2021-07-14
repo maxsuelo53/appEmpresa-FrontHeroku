@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr>
+            <td class="text-center">Nome</td>
+            <td class="text-center">Cargo</td>
+            <td class="text-center">Salário</td>
+            <td class="text-center">Data de Nascimento</td>
+            <td class="text-center">Registro de funcionario</td>
+            <td class="text-center" colspan="2"></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let funcionario of funcionarios">
+            <td class="text-center"> {{ funcionario.nome }}</td>
+            <td class="text-center"> {{ funcionario.cargo }}</td>
+            <td class="text-center"> {{ funcionario.salario | currency:'BRL': 'symbol-narrow'}}</td>
+            <td class="text-center"> {{ funcionario.data_nascimento }}</td>
+            <td class="text-center"> {{ funcionario.registro_funcionario }}</td>
+            <td>
+                <a [routerLink]="['/funcionario', funcionario.id_funcionario]" routerLinkActive="router-link-active" class="btn btn-success">Edit</a>
+              </td>
+              <td>                
+                <button (click)="deleteFuncionario(funcionario.id_funcionario)" class="btn btn-danger">
+                    Delete
+                </button>
+              </td>
+        </tr>
+    </tbody>
+</table>
